@@ -80,7 +80,7 @@ public class CheckerTestUtil {
     private static final String IGNORE_DIAGNOSTIC_PARAMETER = "IGNORE";
     private static final String SHOULD_BE_ESCAPED = "\\)\\(;";
     private static final String DIAGNOSTIC_PARAMETER = "(?:(?:\\\\[" + SHOULD_BE_ESCAPED + "])|[^" + SHOULD_BE_ESCAPED + "])+";
-    private static final String INDIVIDUAL_DIAGNOSTIC = "(\\w+\\|)?(\\w+:)?(\\w+)(\\(" + DIAGNOSTIC_PARAMETER + "(;\\s*" + DIAGNOSTIC_PARAMETER + ")*\\))?";
+    private static final String INDIVIDUAL_DIAGNOSTIC = "(\\w+;)?(\\w+:)?(\\w+)(\\(" + DIAGNOSTIC_PARAMETER + "(;\\s*" + DIAGNOSTIC_PARAMETER + ")*\\))?";
     private static final Pattern RANGE_START_OR_END_PATTERN = Pattern.compile("(<!" +
                                                                               INDIVIDUAL_DIAGNOSTIC + "(,\\s*" +
                                                                               INDIVIDUAL_DIAGNOSTIC + ")*!>)|(<!>)");
@@ -508,7 +508,7 @@ public class CheckerTestUtil {
                 }
                 else {
                     if (diagnostic.withNewInference) {
-                        result.append("NI|");
+                        result.append("NI;");
                     }
                     if (diagnostic.platform != null) {
                         result.append(diagnostic.platform);
@@ -768,7 +768,7 @@ public class CheckerTestUtil {
 
         @Override
         public String toString() {
-            return (withNewInference ? "NI|" : "") + (platform != null ? platform + ":" : "") + diagnostic.toString();
+            return (withNewInference ? "NI;" : "") + (platform != null ? platform + ":" : "") + diagnostic.toString();
         }
     }
 
@@ -779,7 +779,7 @@ public class CheckerTestUtil {
             if (!matcher.find())
                 throw new IllegalArgumentException("Could not parse diagnostic: " + text);
 
-            boolean withNewInference = "NI".equals(extractDataBefore(matcher.group(1), "|"));
+            boolean withNewInference = "NI".equals(extractDataBefore(matcher.group(1), ";"));
             String platform = extractDataBefore(matcher.group(2), ":");
 
             String name = matcher.group(3);
@@ -885,7 +885,7 @@ public class CheckerTestUtil {
         public String asString() {
             StringBuilder result = new StringBuilder();
             if (withNewInference) {
-                result.append("NI|");
+                result.append("NI;");
             }
             if (platform != null) {
                 result.append(platform);
