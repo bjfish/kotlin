@@ -147,9 +147,7 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
             }
             else {
                 this.expectedText = textWithMarkers
-                val newInferenceEnabled = (customLanguageVersionSettings ?: LanguageVersionSettingsImpl.DEFAULT).supportsFeature(LanguageFeature.NewInference)
-                val stripOldDiagnostics = InTextDirectivesUtils.isDirectiveDefined(textWithMarkers, "// WITH_NEW_INFERENCE") && newInferenceEnabled
-                this.clearText = CheckerTestUtil.parseDiagnosedRanges(addExtras(expectedText), diagnosedRanges, stripOldDiagnostics)
+                this.clearText = CheckerTestUtil.parseDiagnosedRanges(addExtras(expectedText), diagnosedRanges)
                 this.createKtFile = lazy { TestCheckerUtil.createCheckAndReturnPsiFile(fileName, clearText, project) }
             }
         }
@@ -217,7 +215,9 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                 computeJvmSignatureDiagnostics(bindingContext)
 
             val ok = booleanArrayOf(true)
-            val withNewInference = (customLanguageVersionSettings ?: LanguageVersionSettingsImpl.DEFAULT).supportsFeature(LanguageFeature.NewInference)
+            val withNewInferenceDirective = InTextDirectivesUtils.isDirectiveDefined(expectedText, "// WITH_NEW_INFERENCE")
+            val withNewInference = (customLanguageVersionSettings ?: LanguageVersionSettingsImpl.DEFAULT).supportsFeature(LanguageFeature.NewInference) &&
+                                   withNewInferenceDirective
             val diagnostics = ContainerUtil.filter(
                     CheckerTestUtil.getDiagnosticsIncludingSyntaxErrors(
                             bindingContext, implementingModulesBindings, ktFile, markDynamicCalls, dynamicCallDescriptors, withNewInference
@@ -225,8 +225,15 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                     { whatDiagnosticsToConsider.value(it.diagnostic) }
             )
 
+            val additionalDiagnostics = mutableListOf<PositionalTextDiagnostic>()
+
+
             val diagnosticToExpectedDiagnostic = CheckerTestUtil.diagnosticsDiff(diagnosedRanges, diagnostics, object : CheckerTestUtil.DiagnosticDiffCallbacks {
                 override fun missingDiagnostic(diagnostic: CheckerTestUtil.TextDiagnostic, expectedStart: Int, expectedEnd: Int) {
+                    if (diagnostic.isWithNewInference != withNewInference) {
+                        additionalDiagnostics.add(PositionalTextDiagnostic(diagnostic, expectedStart, expectedEnd))
+                        return
+                    }
                     val message = "Missing " + diagnostic.description + DiagnosticUtils.atLocation(ktFile, TextRange(expectedStart, expectedEnd))
                     System.err.println(message)
                     ok[0] = false
@@ -250,10 +257,12 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                     System.err.println(message)
                     ok[0] = false
                 }
+
+                override fun isWithNewInference(): Boolean = withNewInference
             })
 
-            actualText.append(
-                    CheckerTestUtil.addDiagnosticMarkersToText(ktFile, diagnostics, diagnosticToExpectedDiagnostic, { file -> file.text })
+            actualText.append(CheckerTestUtil.addDiagnosticMarkersToText(
+                    ktFile, diagnostics, diagnosticToExpectedDiagnostic, { file -> file.text }, additionalDiagnostics, withNewInferenceDirective)
             )
 
             stripExtras(actualText)
@@ -275,6 +284,8 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
 
         override fun toString(): String = ktFile?.name ?: "Java file"
     }
+
+//    data class DiagnosticWithPosition(val diagnostic: CheckerTestUtil.TextDiagnostic, val start: Int, val end: Int)
 
     companion object {
         val DIAGNOSTICS_DIRECTIVE = "DIAGNOSTICS"

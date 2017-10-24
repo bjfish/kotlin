@@ -150,7 +150,7 @@ public class CheckerTestUtilTest extends KotlinTestWithEnvironment {
             ).toString();
 
             List<DiagnosedRange> diagnosedRanges = Lists.newArrayList();
-            CheckerTestUtil.parseDiagnosedRanges(expectedText, diagnosedRanges, false);
+            CheckerTestUtil.parseDiagnosedRanges(expectedText, diagnosedRanges);
 
             List<ActualDiagnostic> actualDiagnostics =
                     CheckerTestUtil.getDiagnosticsIncludingSyntaxErrors(bindingContext, psiFile, false, null, null, false);
@@ -180,6 +180,11 @@ public class CheckerTestUtilTest extends KotlinTestWithEnvironment {
                 @Override
                 public void unexpectedDiagnostic(CheckerTestUtil.TextDiagnostic diagnostic, int actualStart, int actualEnd) {
                     actualMessages.add(unexpected(diagnostic.getDescription(), actualStart, actualEnd));
+                }
+
+                @Override
+                public boolean isWithNewInference() {
+                    return false;
                 }
             });
 
