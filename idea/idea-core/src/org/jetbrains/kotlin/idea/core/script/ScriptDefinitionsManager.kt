@@ -25,6 +25,7 @@ import com.intellij.openapi.projectRoots.ProjectJdkTable
 import com.intellij.openapi.projectRoots.ex.PathUtilEx
 import org.jetbrains.kotlin.script.KotlinScriptDefinition
 import org.jetbrains.kotlin.script.KotlinScriptDefinitionFromAnnotatedTemplate
+import org.jetbrains.kotlin.script.ScriptDefinitionProvider
 import org.jetbrains.kotlin.utils.PathUtil
 import org.jetbrains.kotlin.utils.addToStdlib.flattenTo
 import java.io.File
@@ -38,6 +39,11 @@ import kotlin.script.experimental.dependencies.DependenciesResolver
 import kotlin.script.experimental.dependencies.ScriptDependencies
 import kotlin.script.experimental.dependencies.asSuccess
 import kotlin.script.templates.standard.ScriptTemplateWithArgs
+
+class IdeScriptDefinitionProvider(private val scriptDefinitionsManager: ScriptDefinitionsManager): ScriptDefinitionProvider {
+    override val definitions: List<KotlinScriptDefinition>
+        get() = scriptDefinitionsManager.getDefinitions()
+}
 
 // TODO: wrap getDefinitions calls into try catch
 class ScriptDefinitionsManager(private val project: Project) {
