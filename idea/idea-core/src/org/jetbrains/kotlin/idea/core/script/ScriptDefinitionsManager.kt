@@ -39,6 +39,7 @@ import kotlin.script.experimental.dependencies.ScriptDependencies
 import kotlin.script.experimental.dependencies.asSuccess
 import kotlin.script.templates.standard.ScriptTemplateWithArgs
 
+// TODO: wrap getDefinitions calls into try catch
 class ScriptDefinitionsManager(private val project: Project) {
     private val lock = ReentrantReadWriteLock()
     private var definitionsByContributor = mutableMapOf<ScriptDefinitionContributor, List<KotlinScriptDefinition>>()
@@ -73,44 +74,36 @@ class ScriptDefinitionsManager(private val project: Project) {
 }
 
 
-abstract class TemplateBasedScriptDefinitionContributor: ScriptDefinitionContributor {
-    abstract val templateClassNames: Iterable<String>
+private val LOG = Logger.getInstance("ScriptTemplatesProviders")
 
-    abstract val templateClasspath: List<File>
+fun ScriptDefinitionContributor.loadDefinitionsFromTemplates(
+        templateClassNames: List<String>,
+        templateClasspath: List<File>,
+        environment: Environment = emptyMap(),
+        // TODO: need to provide a way to specify this in compiler/repl .. etc
+        /*
+         * Allows to specify additional jars needed for DependenciesResolver (and not script template).
+         * Script template dependencies naturally become (part of) dependencies of the script which is not always desired for resolver dependencies.
+         * i.e. gradle resolver may depend on some jars that 'built.gradle.kts' files should not depend on.
+         */
+        additionalResolverClasspath: List<File> = emptyList()
+): List<KotlinScriptDefinitionFromAnnotatedTemplate> = try {
+    val classpath = templateClasspath + additionalResolverClasspath
+    LOG.info("[kts] loading script definitions $templateClassNames using cp: ${classpath.joinToString(File.pathSeparator)}")
+    val baseLoader = ScriptDefinitionContributor::class.java.classLoader
+    val loader = if (classpath.isEmpty()) baseLoader else URLClassLoader(classpath.map { it.toURI().toURL() }.toTypedArray(), baseLoader)
 
-    // TODO: need to provide a way to specify this in compiler/repl .. etc
-    /*
-     * Allows to specify additional jars needed for DependenciesResolver (and not script template).
-     * Script template dependencies naturally become (part of) dependencies of the script which is not always desired for resolver dependencies.
-     * i.e. gradle resolver may depend on some jars that 'built.gradle.kts' files should not depend on.
-     */
-    open val additionalResolverClasspath: List<File> get() = emptyList()
-
-    abstract val environment: Map<String, Any?>?
-
-    override fun getDefinitions() = try {
-        val loader = createClassLoader()
-        templateClassNames.map {
-            KotlinScriptDefinitionFromAnnotatedTemplate(
-                    loader.loadClass(it).kotlin,
-                    environment,
-                    templateClasspath
-            )
-        }
+    templateClassNames.map {
+        KotlinScriptDefinitionFromAnnotatedTemplate(
+                loader.loadClass(it).kotlin,
+                environment,
+                templateClasspath
+        )
     }
-    catch (ex: Throwable) {
-        LOG.info("Templates provider ${id} is invalid: ${ex.message}")
-        emptyList<KotlinScriptDefinition>()
-    }
-
-    private fun createClassLoader(): ClassLoader {
-        val classpath = templateClasspath + additionalResolverClasspath
-        LOG.info("[kts] loading script definitions ${templateClassNames} using cp: ${classpath.joinToString(File.pathSeparator)}")
-        val baseLoader = TemplateBasedScriptDefinitionContributor::class.java.classLoader
-        return if (classpath.isEmpty()) baseLoader else URLClassLoader(classpath.map { it.toURI().toURL() }.toTypedArray(), baseLoader)
-    }
-
-    private val LOG = Logger.getInstance("ScriptTemplatesProviders")
+}
+catch (ex: Throwable) {
+    LOG.info("Templates provider ${id} is invalid: ${ex.message}")
+    emptyList()
 }
 
 interface ScriptDefinitionContributor {
