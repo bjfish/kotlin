@@ -214,6 +214,8 @@ public class CheckerTestUtil {
         void unexpectedDiagnostic(TextDiagnostic diagnostic, int actualStart, int actualEnd);
 
         boolean isWithNewInference();
+
+        boolean isWithNewInferenceDirective();
     }
 
     public static Map<ActualDiagnostic, TextDiagnostic> diagnosticsDiff(
@@ -226,7 +228,7 @@ public class CheckerTestUtil {
         assertSameFile(actual);
 
         Iterator<DiagnosedRange> expectedDiagnostics = expected.iterator();
-        List<DiagnosticDescriptor> sortedDiagnosticDescriptors = getSortedDiagnosticDescriptors(actual, Collections.emptyList(), callbacks.isWithNewInference());
+        List<DiagnosticDescriptor> sortedDiagnosticDescriptors = getSortedDiagnosticDescriptors(actual, Collections.emptyList(), callbacks.isWithNewInferenceDirective());
         Iterator<DiagnosticDescriptor> actualDiagnostics = sortedDiagnosticDescriptors.iterator();
 
         DiagnosedRange currentExpected = safeAdvance(expectedDiagnostics);

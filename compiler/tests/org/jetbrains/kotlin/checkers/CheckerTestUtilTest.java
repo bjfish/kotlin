@@ -186,6 +186,11 @@ public class CheckerTestUtilTest extends KotlinTestWithEnvironment {
                 public boolean isWithNewInference() {
                     return false;
                 }
+
+                @Override
+                public boolean isWithNewInferenceDirective() {
+                    return false;
+                }
             });
 
             assertEquals(listToString(expectedMessages), listToString(actualMessages));

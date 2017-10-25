@@ -260,6 +260,8 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                 }
 
                 override fun isWithNewInference(): Boolean = withNewInference
+
+                override fun isWithNewInferenceDirective(): Boolean = withNewInferenceDirective
             })
 
             actualText.append(CheckerTestUtil.addDiagnosticMarkersToText(
