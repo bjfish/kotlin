@@ -34,7 +34,7 @@ fun main() {
     }
 
     A.baz {
-        x -> <!TYPE_MISMATCH!>x.hashCode()<!>
+        x -> <!TYPE_MISMATCH, TYPE_MISMATCH!>x.hashCode()<!>
     }
 
     val block: (String) -> Any? = {
@@ -48,6 +48,6 @@ fun main() {
         x -> x.toString()
     }
 
-    A.baz(<!TYPE_MISMATCH!>block<!>)
+    A.baz(<!TYPE_MISMATCH, TYPE_MISMATCH!>block<!>)
     A.baz(block2)
 }

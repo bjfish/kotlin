@@ -37,7 +37,7 @@ public fun d(d: D<Int>) {
 import p.*
 
 fun test() {
-    a(<!TYPE_MISMATCH!>M1().b<!>) // Type arguments do not match
-    c(<!TYPE_MISMATCH!>M1().b<!>) // Type arguments do not match
+    a(<!TYPE_MISMATCH, TYPE_MISMATCH!>M1().b<!>) // Type arguments do not match
+    c(<!TYPE_MISMATCH, TYPE_MISMATCH!>M1().b<!>) // Type arguments do not match
     d(M1().b) // Type arguments do match
 }

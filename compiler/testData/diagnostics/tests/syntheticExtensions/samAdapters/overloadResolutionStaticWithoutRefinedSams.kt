@@ -13,8 +13,8 @@ public class A {
 // FILE: 1.kt
 fun fn() {}
 fun x(r: Runnable) {
-    A.foo(::fn) checkType { _<String>() }
-    A.foo {} checkType { _<String>() }
+    A.foo(::fn) checkType { <!UNRESOLVED_REFERENCE_WRONG_RECEIVER, DEBUG_INFO_UNRESOLVED_WITH_TARGET!>_<!><String>() }
+    A.foo {} checkType { <!UNRESOLVED_REFERENCE_WRONG_RECEIVER, DEBUG_INFO_UNRESOLVED_WITH_TARGET!>_<!><String>() }
 
     A.foo(null) checkType { _<Int>() }
     A.foo(Runnable { }) checkType { _<Int>() }

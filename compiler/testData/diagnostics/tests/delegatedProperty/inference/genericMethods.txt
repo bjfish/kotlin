@@ -1,9 +1,7 @@
-// WITH_NEW_INFERENCE
-
 package
 
 public var a: kotlin.Int
-public var a1: [ERROR : Type from delegate]
+public var a1: kotlin.Nothing
 public var b: kotlin.Int
 public var c: kotlin.String
 public val cObj: C

@@ -16,13 +16,13 @@ public class A {
 
 // FILE: main.kt
 fun main() {
-    A().foo <!TYPE_MISMATCH!>{
-        <!CANNOT_INFER_PARAMETER_TYPE, UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
+    A().foo <!TYPE_MISMATCH, TYPE_MISMATCH!>{
+        <!UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
         ""
     }<!>
 
-    A.bar <!TYPE_MISMATCH!>{
-        <!CANNOT_INFER_PARAMETER_TYPE, UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
+    A.bar <!TYPE_MISMATCH, TYPE_MISMATCH!>{
+        <!UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
         ""
     }<!>
 }

@@ -38,20 +38,20 @@ fun foo(
         cs: Collection<String>, ca: Collection<Any?>
 ) {
     a.containsAll(cs)
-    a.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    a.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 
     b.containsAll(cs)
-    b.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    b.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 
     ic.containsAll(cs)
-    ic.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    ic.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 
     ka.containsAll(cs)
-    ka.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    ka.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 
     kb.containsAll(cs)
-    kb.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    kb.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 
     al.containsAll(cs)
-    al.containsAll(<!TYPE_MISMATCH!>ca<!>)
+    al.containsAll(<!TYPE_MISMATCH, TYPE_MISMATCH!>ca<!>)
 }
