@@ -20,7 +20,9 @@ package org.jetbrains.kotlin.js.translate.expression
 
 import org.jetbrains.kotlin.builtins.KotlinBuiltIns
 import org.jetbrains.kotlin.descriptors.CallableDescriptor
+import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.descriptors.FunctionDescriptor
+import org.jetbrains.kotlin.descriptors.VariableDescriptor
 import org.jetbrains.kotlin.js.backend.ast.*
 import org.jetbrains.kotlin.js.translate.callTranslator.CallTranslator
 import org.jetbrains.kotlin.js.translate.context.TranslationContext
@@ -29,14 +31,18 @@ import org.jetbrains.kotlin.js.translate.intrinsic.functions.factories.ArrayFIF
 import org.jetbrains.kotlin.js.translate.utils.BindingUtils.*
 import org.jetbrains.kotlin.js.translate.utils.JsAstUtils
 import org.jetbrains.kotlin.js.translate.utils.JsAstUtils.*
+import org.jetbrains.kotlin.js.translate.utils.JsDescriptorUtils.getReceiverParameterForReceiver
 import org.jetbrains.kotlin.js.translate.utils.PsiUtils.getLoopRange
 import org.jetbrains.kotlin.js.translate.utils.TranslationUtils
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.psi.*
+import org.jetbrains.kotlin.resolve.BindingContext
+import org.jetbrains.kotlin.resolve.BindingContextUtils
 import org.jetbrains.kotlin.resolve.calls.callUtil.getResolvedCall
 import org.jetbrains.kotlin.resolve.calls.model.ResolvedCall
 import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameSafe
 import org.jetbrains.kotlin.resolve.scopes.receivers.ExpressionReceiver
+import org.jetbrains.kotlin.resolve.scopes.receivers.ImplicitReceiver
 
 fun createWhile(doWhile: Boolean, expression: KtWhileExpressionBase, context: TranslationContext): JsNode {
     val conditionExpression = expression.condition ?:
@@ -85,6 +91,8 @@ private val stepFunctionName = FqName("kotlin.ranges.step")
 private val intRangeName = FqName("kotlin.ranges.IntRange")
 private val intProgressionName = FqName("kotlin.ranges.IntProgression")
 
+private val withIndexFqName = FqName("kotlin.collections.withIndex")
+
 fun translateForExpression(expression: KtForExpression, context: TranslationContext): JsStatement {
     val loopRange = KtPsiUtil.deparenthesize(getLoopRange(expression))!!
     val rangeType = getTypeForExpression(context.bindingContext(), loopRange)
@@ -132,6 +140,31 @@ fun translateForExpression(expression: KtForExpression, context: TranslationCont
     }
     else {
         JsScope.declareTemporary()
+    }
+
+    fun extractArrayWithIndex(): WithIndexInfo? {
+        val resolvedCall = loopRange.getResolvedCall(context.bindingContext()) ?: return null
+        if (resolvedCall.resultingDescriptor.fqNameSafe != withIndexFqName) return null
+        if (destructuringParameter == null) return null
+
+        val receiverClass = resolvedCall.extensionReceiver?.type?.constructor?.declarationDescriptor as? ClassDescriptor ?: return null
+        if (!KotlinBuiltIns.isArrayOrPrimitiveArray(receiverClass)) return null
+
+        fun KtDestructuringDeclarationEntry.extractDescriptor() =
+                BindingContextUtils.getNotNull(context.bindingContext(), BindingContext.VARIABLE, this).takeUnless { it.name.isSpecial }
+
+        val receiver = resolvedCall.extensionReceiver ?: return null
+        val arrayExpr = when (receiver) {
+            is ExpressionReceiver -> Translation.translateAsExpression(receiver.expression, context)
+            is ImplicitReceiver -> context.getDispatchReceiver(getReceiverParameterForReceiver(receiver))
+            else -> return null
+        }
+
+        return WithIndexInfo(
+            destructuringParameter.entries[0].extractDescriptor(),
+            destructuringParameter.entries[1].extractDescriptor(),
+            arrayExpr
+        )
     }
 
     fun translateBody(itemValue: JsExpression?): JsStatement? {
@@ -242,6 +275,24 @@ fun translateForExpression(expression: KtForExpression, context: TranslationCont
         return JsFor(initExpression, conditionExpression, incrementExpression, body)
     }
 
+    fun translateForOverArrayWithIndex(info: WithIndexInfo): JsStatement {
+        val range = context.cacheExpressionIfNeeded(info.array)
+        val indexVar = info.index?.let { context.getNameForDescriptor(it) } ?: JsScope.declareTemporary()
+        val valueVar = info.value?.let { context.getNameForDescriptor(it) }
+
+        val initExpression = newVar(indexVar, JsIntLiteral(0)).apply { source = expression }
+        val conditionExpression = inequality(indexVar.makeRef(), JsNameRef("length", range)).source(expression)
+        val incrementExpression = JsPrefixOperation(JsUnaryOperator.INC, indexVar.makeRef()).source(expression)
+
+        val body = JsBlock()
+        if (valueVar != null) {
+            body.statements += newVar(valueVar, JsArrayAccess(range, indexVar.makeRef()))
+        }
+        expression.body?.let { body.statements += Translation.translateAsStatement(it, context.innerBlock(body)) }
+
+        return JsFor(initExpression, conditionExpression, incrementExpression, body)
+    }
+
     fun translateForOverIterator(): JsStatement {
 
         fun translateMethodInvocation(
@@ -284,10 +335,14 @@ fun translateForExpression(expression: KtForExpression, context: TranslationCont
     }
 
     val rangeLiteral = extractForOverRangeLiteral()
+    val arrayWithIndex = extractArrayWithIndex()
 
     val result = when {
         rangeLiteral != null ->
             translateForOverLiteralRange(rangeLiteral)
+
+        arrayWithIndex != null ->
+            translateForOverArrayWithIndex(arrayWithIndex)
 
         isForOverRange() ->
             translateForOverRange()
@@ -309,3 +364,5 @@ private enum class RangeType {
 }
 
 private class RangeLiteral(val type: RangeType, val first: KtExpression, val second: KtExpression, var step: KtExpression?)
+
+private class WithIndexInfo(val index: VariableDescriptor?, val value: VariableDescriptor?, val array: JsExpression)
