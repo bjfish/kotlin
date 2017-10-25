@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun <X, Y, Z> foo(f: (Y) -> Z, g: (X) -> Y, x: X): Z = f(g(x))
 

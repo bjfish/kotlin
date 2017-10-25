@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER,-UNUSED_VARIABLE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun <T : CharSequence?> bar1(x: T) {}
 

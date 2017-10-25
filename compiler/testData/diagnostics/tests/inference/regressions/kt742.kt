@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 //KT-742 Stack overflow in type inference
 package a

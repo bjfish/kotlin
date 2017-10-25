@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 //KT-1127 Wrong type computed for Arrays.asList()
 

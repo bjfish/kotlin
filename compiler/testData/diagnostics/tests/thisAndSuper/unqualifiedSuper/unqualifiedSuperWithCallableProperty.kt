@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 // Ambiguity between fun and callable property
 

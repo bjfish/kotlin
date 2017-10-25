@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 object Outer {
     private var x
         get() = object : CharSequence {

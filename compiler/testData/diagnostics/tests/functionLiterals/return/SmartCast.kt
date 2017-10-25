@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 // KT-6822 Smart cast doesn't work inside local returned expression in lambda 
 

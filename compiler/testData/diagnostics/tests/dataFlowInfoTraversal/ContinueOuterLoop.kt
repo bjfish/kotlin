@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun whileLoop(x: Int?) {
     outer@ while (x != 0) {

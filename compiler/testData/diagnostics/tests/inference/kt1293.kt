@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 //KT-1293 Kompiler doesn't show error when element of Array<Int?> is assigned to Int
 

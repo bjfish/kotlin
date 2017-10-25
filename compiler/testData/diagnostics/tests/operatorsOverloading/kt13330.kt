@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 //KT-13330 AssertionError: Illegal resolved call to variable with invoke
 

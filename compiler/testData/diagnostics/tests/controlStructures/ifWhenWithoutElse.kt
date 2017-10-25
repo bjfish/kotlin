@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun idAny(x: Any) = x
 fun <T> id(x: T) = x

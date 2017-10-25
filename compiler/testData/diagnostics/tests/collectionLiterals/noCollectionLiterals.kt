@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun test(): Array<Int> {
     <!NI;UNSUPPORTED!><!UNSUPPORTED!>[1, 2]<!><!>

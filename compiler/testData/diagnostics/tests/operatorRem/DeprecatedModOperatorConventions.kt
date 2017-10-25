@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 class OldAndNew {
     <!NI;DEPRECATED_BINARY_MOD!><!DEPRECATED_BINARY_MOD!>operator<!><!> fun mod(x: Int) {}

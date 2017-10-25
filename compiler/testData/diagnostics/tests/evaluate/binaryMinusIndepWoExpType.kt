@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 val p1 = 1 - 1
 val p2 = 1 - 1.toLong()

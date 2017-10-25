@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 //KT-1875 Safe call should be binded with receiver or this object (but not with both by default)
 

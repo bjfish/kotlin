@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 open class B(open val parentProp: Int)
 val global: Int = 1
 class A : B {

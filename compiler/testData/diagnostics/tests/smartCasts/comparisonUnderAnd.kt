@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun foo(x : String?, y : String?) {
     if (y != null && x == y) {

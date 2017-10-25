@@ -1,6 +1,6 @@
 // !LANGUAGE: +AssigningArraysToVarargsInNamedFormInAnnotations
 // !DIAGNOSTICS: -UNUSED_PARAMETER, -UNUSED_VARIABLE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun foo(vararg s: Int) {}
 

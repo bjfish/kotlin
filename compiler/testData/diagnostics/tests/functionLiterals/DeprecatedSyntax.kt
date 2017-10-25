@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 val receiver = { Int.<!NI;ILLEGAL_SELECTOR!>(<!NI;SYNTAX!><!><!SYNTAX!><!>)<!> <!NI;SYNTAX!><!SYNTAX!>-><!><!> }
 val receiverWithParameter = { Int.<!NI;ILLEGAL_SELECTOR!><!ILLEGAL_SELECTOR!>(<!NI;UNRESOLVED_REFERENCE!><!UNRESOLVED_REFERENCE!>a<!><!>)<!><!> <!NI;SYNTAX!><!SYNTAX!>-><!><!> }

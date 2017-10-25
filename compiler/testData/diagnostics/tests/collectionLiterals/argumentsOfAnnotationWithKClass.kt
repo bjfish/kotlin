@@ -1,5 +1,5 @@
 // !LANGUAGE: +ArrayLiteralsInAnnotations
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 import kotlin.reflect.KClass
 

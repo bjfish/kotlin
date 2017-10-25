@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 public fun bar(s: String) {
     System.out.println("Length of $s is ${s.length}")

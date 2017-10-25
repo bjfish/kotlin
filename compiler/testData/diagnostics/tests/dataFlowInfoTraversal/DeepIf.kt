@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -DEBUG_INFO_SMARTCAST
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 fun bar(x: Int) = x + 1
 
 fun foo() {

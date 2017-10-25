@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 val test: Int = if (true) <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!>{
     when (2) {

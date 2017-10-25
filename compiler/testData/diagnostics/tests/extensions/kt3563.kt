@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 // KT-3563 Compiler requiring java.io.File, and it's unclear why
 

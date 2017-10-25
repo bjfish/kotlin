@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 // See KT-13401: SOE in VarianceChecker
 interface Rec<T: Rec<T>> {

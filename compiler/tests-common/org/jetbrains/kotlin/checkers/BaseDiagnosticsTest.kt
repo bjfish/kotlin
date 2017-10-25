@@ -216,7 +216,7 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                 computeJvmSignatureDiagnostics(bindingContext)
 
             val ok = booleanArrayOf(true)
-//            val withNewInferenceDirective = InTextDirectivesUtils.isDirectiveDefined(expectedText, "// // !WITH_NEW_INFERENCE")
+//            val withNewInferenceDirective = InTextDirectivesUtils.isDirectiveDefined(expectedText, "// !WITH_NEW_INFERENCE")
             val withNewInference = (customLanguageVersionSettings ?: LanguageVersionSettingsImpl.DEFAULT).supportsFeature(LanguageFeature.NewInference) &&
                                    withNewInferenceDirective
             val diagnostics = ContainerUtil.filter(

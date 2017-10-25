@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun <T, R> Iterable<T>.map(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>transform<!><!>: (T) -> R): List<R> = null!!
 fun <T> listOf(): List<T> = null!!

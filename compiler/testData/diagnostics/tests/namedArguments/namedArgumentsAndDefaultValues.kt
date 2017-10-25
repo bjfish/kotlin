@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun foo(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>a<!><!> : Int = 1, <!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>b<!><!> : String = "abc") {
 }

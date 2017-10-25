@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNREACHABLE_CODE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun foo() {
     val <!UNUSED_VARIABLE!>text<!>: List<Any> = null!!

@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_VARIABLE
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 object Boo {}
 class A {

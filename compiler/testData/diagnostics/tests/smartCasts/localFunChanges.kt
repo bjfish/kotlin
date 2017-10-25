@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun trans(n: Int, f: () -> Boolean) = if (f()) n else null
 

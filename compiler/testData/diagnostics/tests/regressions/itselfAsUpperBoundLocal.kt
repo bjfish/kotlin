@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun bar() {
     fun <<!NI;CYCLIC_GENERIC_UPPER_BOUND!><!CYCLIC_GENERIC_UPPER_BOUND!>T: T?<!><!>> foo() {}

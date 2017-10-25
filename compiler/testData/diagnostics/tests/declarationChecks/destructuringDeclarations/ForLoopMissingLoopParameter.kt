@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 fun useDeclaredVariables() {
     for ((a, b)<!NI;SYNTAX!><!><!SYNTAX!><!>) {

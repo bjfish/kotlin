@@ -1,4 +1,4 @@
-// // !WITH_NEW_INFERENCE
+// !WITH_NEW_INFERENCE
 
 typealias A<T> = Map<T, T>
 typealias B = A<*>
