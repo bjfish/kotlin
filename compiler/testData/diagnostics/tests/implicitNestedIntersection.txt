@@ -1,6 +1,6 @@
 package
 
-public fun foo2(): In<kotlin.Nothing>
+public fun foo2(): In<{A & B}>
 public fun </*0*/ T> select(/*0*/ x: T, /*1*/ y: T): T
 
 public open class A : In<A> {
