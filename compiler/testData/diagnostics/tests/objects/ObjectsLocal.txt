@@ -1,9 +1,7 @@
-// WITH_NEW_INFERENCE
-
 package
 
 package localObjects {
-    public val bb: [ERROR : <ERROR FUNCTION RETURN TYPE>]
+    public val bb: kotlin.Any?
     public fun test(): kotlin.Unit
 
     public object A {

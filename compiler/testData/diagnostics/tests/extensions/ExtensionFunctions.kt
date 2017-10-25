@@ -6,39 +6,39 @@ package outer
 fun Int?.optint() : Unit {}
 val Int?.optval : Unit get() = Unit
 
-fun <T: Any, E> T.foo(<!UNUSED_PARAMETER!>x<!> : E, y : A) : T   {
+fun <T: Any, E> T.foo(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>x<!><!> : E, y : A) : T   {
   y.plus(1)
   y plus 1
   y + 1.0
 
-  this<!UNNECESSARY_SAFE_CALL!>?.<!>minus<T>(this)
+  this<!NI;UNNECESSARY_SAFE_CALL!><!UNNECESSARY_SAFE_CALL!>?.<!><!>minus<T>(this)
 
   return this
 }
 
 class A
 
-infix operator fun A.plus(<!UNUSED_PARAMETER!>a<!> : Any) {
+infix operator fun A.plus(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>a<!><!> : Any) {
 
   1.foo()
-  true.<!TYPE_INFERENCE_NO_INFORMATION_FOR_PARAMETER!>foo<!>(<!NO_VALUE_FOR_PARAMETER, NO_VALUE_FOR_PARAMETER!>)<!>
+  true.<!NI;UNRESOLVED_REFERENCE_WRONG_RECEIVER!><!NI;DEBUG_INFO_UNRESOLVED_WITH_TARGET!><!TYPE_INFERENCE_NO_INFORMATION_FOR_PARAMETER!>foo<!><!><!>(<!NO_VALUE_FOR_PARAMETER!><!NO_VALUE_FOR_PARAMETER!>)<!><!>
 
-  <!UNUSED_EXPRESSION!>1<!>
+  <!NI;UNUSED_EXPRESSION!><!UNUSED_EXPRESSION!>1<!><!>
 }
 
-operator fun A.plus(<!UNUSED_PARAMETER!>a<!> : Int) {
-  <!UNUSED_EXPRESSION!>1<!>
+operator fun A.plus(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>a<!><!> : Int) {
+  <!NI;UNUSED_EXPRESSION!><!UNUSED_EXPRESSION!>1<!><!>
 }
 
-operator fun <T> T.minus(<!UNUSED_PARAMETER!>t<!> : T) : Int = 1
+operator fun <T> T.minus(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>t<!><!> : T) : Int = 1
 
 fun test() {
-  val <!UNUSED_VARIABLE!>y<!> = 1.abs
+  val <!NI;UNUSED_VARIABLE!><!UNUSED_VARIABLE!>y<!><!> = 1.abs
 }
 val Int.abs : Int
   get() = if (this > 0) this else -this;
 
-<!EXTENSION_PROPERTY_MUST_HAVE_ACCESSORS_OR_BE_ABSTRACT!>val <T> T.foo : T<!>
+<!NI;EXTENSION_PROPERTY_MUST_HAVE_ACCESSORS_OR_BE_ABSTRACT!><!EXTENSION_PROPERTY_MUST_HAVE_ACCESSORS_OR_BE_ABSTRACT!>val <T> T.foo : T<!><!>
 
 fun Int.foo() = this
 

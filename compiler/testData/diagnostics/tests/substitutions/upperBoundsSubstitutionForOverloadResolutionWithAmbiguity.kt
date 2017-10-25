@@ -3,7 +3,7 @@
 // FILE: foo.kt
 package foo
 
-fun <T> f(<!UNUSED_PARAMETER!>l<!>: List<T>) {}
+fun <T> f(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>l<!><!>: List<T>) {}
 
 // FILE: bar.kt
 package bar
@@ -16,5 +16,5 @@ import foo.*
 import bar.*
 
 fun <T> test(l: List<T>) {
-    <!CANNOT_COMPLETE_RESOLVE!>f<!>(l)
+    <!OVERLOAD_RESOLUTION_AMBIGUITY!>f<!>(l)
 }

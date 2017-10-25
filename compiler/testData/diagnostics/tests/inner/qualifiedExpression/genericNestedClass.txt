@@ -1,10 +1,8 @@
-// WITH_NEW_INFERENCE
-
 package
 
-public fun manyArguments(): Outer.Nested<kotlin.String>
+public fun manyArguments(): Outer.Nested<kotlin.Any?>
 public fun nested(): Outer.Nested<kotlin.Int>
-public fun noArguments(): [ERROR : Error function type]
+public fun noArguments(): Outer.Nested<kotlin.Any?>
 public fun noArgumentsExpectedType(): Outer.Nested<kotlin.String>
 
 public final class Outer {

@@ -18,8 +18,8 @@ class C2 {
 
         val prop: String = ""
 
-        fun o(<!UNUSED_PARAMETER!>s<!>: String) = Unit
-        fun o(<!UNUSED_PARAMETER!>i<!>: Int) = Unit
+        fun o(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>s<!><!>: String) = Unit
+        fun o(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>i<!><!>: Int) = Unit
 
         fun Int.ext() = Unit
         var String.ext: Int
@@ -27,11 +27,11 @@ class C2 {
             set(i) {
             }
 
-        fun A(<!UNUSED_PARAMETER!>c<!>: Int) = A()
+        fun A(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>c<!><!>: Int) = A()
 
         class A()
 
-        fun <T> genericFun(t: T, <!UNUSED_PARAMETER!>t2<!>: T): T = t
+        fun <T> genericFun(t: T, <!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>t2<!><!>: T): T = t
     }
 }
 
@@ -39,7 +39,7 @@ open class Base {
     fun f() {
     }
 
-    fun <T> g(<!UNUSED_PARAMETER!>t<!>: T) {
+    fun <T> g(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>t<!><!>: T) {
     }
 
     val p = 1
@@ -134,7 +134,7 @@ fun testMembersFromSupertypes() {
     fromI()
 
     genericFromI(3)
-    genericFromI(<!TYPE_MISMATCH!>"a"<!>)
+    genericFromI(<!TYPE_MISMATCH, TYPE_MISMATCH!>"a"<!>)
 
     own
 }

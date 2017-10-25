@@ -11,6 +11,6 @@ public class JavaClass {
 // FILE: main.kt
 fun foo() {
     JavaClass().foo(Any())
-    JavaClass().bar(<!TYPE_MISMATCH!>Any()<!>)
+    JavaClass().bar(<!TYPE_MISMATCH, TYPE_MISMATCH!>Any()<!>)
     JavaClass().bar("")
 }

@@ -73,5 +73,5 @@ fun test(b: B) {
     b_3.m2()
 
     val b_4 = <!UNRESOLVED_REFERENCE!>a<!>.<!DEBUG_INFO_ELEMENT_WITH_ERROR_TYPE!>B<!>()
-    <!DEBUG_INFO_ELEMENT_WITH_ERROR_TYPE!>b_4<!>.<!DEBUG_INFO_ELEMENT_WITH_ERROR_TYPE!>m2<!>()
+    b_4.<!UNRESOLVED_REFERENCE!>m2<!>()
 }
