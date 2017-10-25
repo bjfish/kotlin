@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 fun simpleWhile(x: Int?, y0: Int) {

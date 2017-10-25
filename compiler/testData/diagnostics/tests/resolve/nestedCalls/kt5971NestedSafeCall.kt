@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 
 //KT-5971 Missing error when fun argument is safe call

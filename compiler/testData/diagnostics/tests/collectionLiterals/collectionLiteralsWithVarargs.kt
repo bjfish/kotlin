@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !LANGUAGE: +ArrayLiteralsInAnnotations
 
 annotation class Ann1(vararg val a: String = [])

@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 
 fun <T> ofType(x: T): T = x

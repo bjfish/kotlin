@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 //KT-2200 array(array()) breaks compiler

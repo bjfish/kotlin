@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 @Target(AnnotationTarget.TYPE, AnnotationTarget.CLASS,
         AnnotationTarget.CONSTRUCTOR, AnnotationTarget.FUNCTION,

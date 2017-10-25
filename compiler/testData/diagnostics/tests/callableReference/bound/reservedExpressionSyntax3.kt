@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_VARIABLE
 package test
 

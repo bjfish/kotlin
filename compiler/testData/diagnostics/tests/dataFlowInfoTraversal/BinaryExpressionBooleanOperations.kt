@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 fun foo1(x: Number, cond: Boolean): Boolean {

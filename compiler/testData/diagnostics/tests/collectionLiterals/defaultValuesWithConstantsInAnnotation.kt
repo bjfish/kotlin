@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !LANGUAGE: +ArrayLiteralsInAnnotations
 
 const val ONE = 1

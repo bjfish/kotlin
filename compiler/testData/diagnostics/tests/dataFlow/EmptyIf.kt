@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 fun f1(s: String?) {

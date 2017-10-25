@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 //KT-731 Missing error from type inference

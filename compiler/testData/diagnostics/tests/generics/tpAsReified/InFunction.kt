@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 
 inline fun <reified T> f(): T = throw UnsupportedOperationException()

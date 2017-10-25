@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 class A(x: Int) {
     constructor(x: Double): this(1)

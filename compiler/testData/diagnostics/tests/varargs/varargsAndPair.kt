@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !CHECK_TYPE
 
 fun <T: Any> foo(vararg <!UNUSED_PARAMETER!>ts<!>: T): T? = null

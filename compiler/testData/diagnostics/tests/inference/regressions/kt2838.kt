@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -UNREACHABLE_CODE
 //KT-2838 Type inference failed on passing null as a nullable argument
 package a

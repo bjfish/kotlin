@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !DIAGNOSTICS: -DEBUG_INFO_SMARTCAST
 class Foo {
     fun foo(a: Foo): Foo = a

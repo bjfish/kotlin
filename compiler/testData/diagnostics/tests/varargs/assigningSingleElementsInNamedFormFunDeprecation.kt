@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !LANGUAGE: +AssigningArraysToVarargsInNamedFormInAnnotations
 // !DIAGNOSTICS: -UNUSED_PARAMETER, -UNUSED_VARIABLE
 

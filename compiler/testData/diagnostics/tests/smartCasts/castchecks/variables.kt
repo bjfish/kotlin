@@ -1,3 +1,5 @@
+// WITH_NEW_INFERENCE
+
 // !LANGUAGE: +SafeCastCheckBoundSmartCasts
 interface SomeClass {
     val data: Any?
