@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
 // !DIAGNOSTICS: -UNUSED_ANONYMOUS_PARAMETER -UNUSED_VARIABLE
+// WITH_NEW_INFERENCE
 
 fun testReturnType(foo: String) {
     val bar = fun () = foo

@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
+// WITH_NEW_INFERENCE
 
 fun noUselessDataFlowInfoCreation(x: Number) {
     if (x is Int) { if (<!USELESS_IS_CHECK!>x is Int<!>) { if (<!USELESS_IS_CHECK!>x is Int<!>) { if (<!USELESS_IS_CHECK!>x is Int<!>) { if (<!USELESS_IS_CHECK!>x is Int<!>) {

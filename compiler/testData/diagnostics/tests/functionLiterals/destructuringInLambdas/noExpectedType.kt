@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
 // !DIAGNOSTICS: -UNUSED_VARIABLE
+// WITH_NEW_INFERENCE
 data class A(val x: Int, val y: String)
 
 fun bar() {

@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_PARAMETER
+// WITH_NEW_INFERENCE
 // FILE: AImpl.kt
 
 public abstract class AImpl {

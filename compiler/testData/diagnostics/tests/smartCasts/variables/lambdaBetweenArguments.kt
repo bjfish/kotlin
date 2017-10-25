@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_PARAMETER
+// WITH_NEW_INFERENCE
 
 fun foo(x: Int, f: () -> Unit, y: Int) {}
 

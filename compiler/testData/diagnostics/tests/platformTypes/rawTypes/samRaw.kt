@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_VARIABLE
+// WITH_NEW_INFERENCE
 // FILE: A.java
 
 import java.util.List;

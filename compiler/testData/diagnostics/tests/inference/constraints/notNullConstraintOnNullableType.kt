@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
+// WITH_NEW_INFERENCE
 interface A<T>
 
 interface In<in T>

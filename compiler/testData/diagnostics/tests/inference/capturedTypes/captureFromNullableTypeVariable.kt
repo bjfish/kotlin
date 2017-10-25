@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
+// WITH_NEW_INFERENCE
 
 fun <T : Any> Array<T?>.filterNotNull(): List<T> = throw Exception()
 

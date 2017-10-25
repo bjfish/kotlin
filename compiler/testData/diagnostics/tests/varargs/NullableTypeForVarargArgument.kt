@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS:-UNUSED_PARAMETER
+// WITH_NEW_INFERENCE
 
 // KT-9883 prohibit using spread operator for nullable value
 

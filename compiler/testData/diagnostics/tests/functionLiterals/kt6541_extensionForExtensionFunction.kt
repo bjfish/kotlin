@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_PARAMETER
+// WITH_NEW_INFERENCE
 
 interface Foo
 fun (Foo.() -> Unit).invoke(b : Foo.() -> Unit)  {}

@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_PARAMETER
 // !CHECK_TYPE
+// WITH_NEW_INFERENCE
 // FILE: A.java
 
 public class A<E> {

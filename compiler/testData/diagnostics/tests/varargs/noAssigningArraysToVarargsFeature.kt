@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !LANGUAGE: +ArrayLiteralsInAnnotations, -AssigningArraysToVarargsInNamedFormInAnnotations
+// WITH_NEW_INFERENCE
 
 // FILE: JavaAnn.java
 

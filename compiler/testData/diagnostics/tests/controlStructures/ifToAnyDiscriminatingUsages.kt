@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !DIAGNOSTICS: -UNUSED_PARAMETER -UNUSED_VARIABLE
+// WITH_NEW_INFERENCE
 
 fun println() {}
 fun foo(x: Any) {}

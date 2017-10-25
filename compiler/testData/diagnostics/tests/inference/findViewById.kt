@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !LANGUAGE: +ExpectedTypeFromCast
 // !DIAGNOSTICS: -UNUSED_VARIABLE -DEBUG_INFO_LEAKING_THIS
+// WITH_NEW_INFERENCE
 
 // FILE: a/View.java
 package a;

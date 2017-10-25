@@ -1,6 +1,5 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
+// WITH_NEW_INFERENCE
 
 fun foo1(x: Number, cond: Boolean): Boolean {
     val result = cond && ((x as Int) == 42)

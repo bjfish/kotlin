@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
 // !DIAGNOSTICS: -UNUSED_PARAMETER -UNUSED_ANONYMOUS_PARAMETER
+// WITH_NEW_INFERENCE
 data class A(val x: Int, val y: String)
 data class B(val u: Double, val w: Short)
 

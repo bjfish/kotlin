@@ -1,7 +1,6 @@
-// WITH_NEW_INFERENCE
-
 // !CHECK_TYPE
 // !DIAGNOSTICS: -UNUSED_PARAMETER
+// WITH_NEW_INFERENCE
 
 class Out<out X>
 class In<in Y>
