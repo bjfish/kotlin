@@ -428,7 +428,7 @@ public class CheckerTestUtil {
         String text = getFileText.fun(psiFile);
         StringBuffer result = new StringBuffer();
         diagnostics = CollectionsKt.filter(diagnostics, actualDiagnostic -> psiFile.equals(actualDiagnostic.getFile()));
-        if (diagnostics.isEmpty()) {
+        if (diagnostics.isEmpty() && additionalDiagnostics.isEmpty()) {
             result.append(text);
             return result;
         }
