@@ -38,7 +38,6 @@ import org.jetbrains.kotlin.psi.KtDeclaration
 import org.jetbrains.kotlin.psi.KtFile
 import org.jetbrains.kotlin.resolve.BindingContext
 import org.jetbrains.kotlin.resolve.MultiTargetPlatform
-import org.jetbrains.kotlin.test.InTextDirectivesUtils
 import org.jetbrains.kotlin.test.KotlinTestUtils
 import org.jetbrains.kotlin.utils.addIfNotNull
 import org.junit.Assert
@@ -131,6 +130,7 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
         val checkLazyLog: Boolean
         private val markDynamicCalls: Boolean
         val dynamicCallDescriptors: List<DeclarationDescriptor> = ArrayList()
+        val withNewInferenceDirective: Boolean
 
         init {
             this.declareCheckType = CHECK_TYPE_DIRECTIVE in directives
@@ -139,6 +139,7 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
             this.checkLazyLog = CHECK_LAZY_LOG_DIRECTIVE in directives || CHECK_LAZY_LOG_DEFAULT
             this.declareFlexibleType = EXPLICIT_FLEXIBLE_TYPES_DIRECTIVE in directives
             this.markDynamicCalls = MARK_DYNAMIC_CALLS_DIRECTIVE in directives
+            this.withNewInferenceDirective = "WITH_NEW_INFERENCE" in directives
             if (fileName.endsWith(".java")) {
                 // TODO: check there are no syntax errors in .java sources
                 this.createKtFile = lazyOf(null)
@@ -215,7 +216,7 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
                 computeJvmSignatureDiagnostics(bindingContext)
 
             val ok = booleanArrayOf(true)
-            val withNewInferenceDirective = InTextDirectivesUtils.isDirectiveDefined(expectedText, "// WITH_NEW_INFERENCE")
+//            val withNewInferenceDirective = InTextDirectivesUtils.isDirectiveDefined(expectedText, "// WITH_NEW_INFERENCE")
             val withNewInference = (customLanguageVersionSettings ?: LanguageVersionSettingsImpl.DEFAULT).supportsFeature(LanguageFeature.NewInference) &&
                                    withNewInferenceDirective
             val diagnostics = ContainerUtil.filter(
