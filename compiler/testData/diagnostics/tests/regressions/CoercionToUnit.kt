@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun foo(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>u<!><!> : Unit) : Int = 1
 

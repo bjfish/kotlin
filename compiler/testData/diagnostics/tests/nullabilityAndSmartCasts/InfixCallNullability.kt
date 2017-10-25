@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 class A() {
     operator infix fun plus(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>i<!><!> : Int) {}

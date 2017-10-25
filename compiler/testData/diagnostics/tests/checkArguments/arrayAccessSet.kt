@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 object A {
     operator fun set(x: Int, y: String = "y", z: Double) {

@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 class Test {
     private fun <T : Any> T.self() = object {

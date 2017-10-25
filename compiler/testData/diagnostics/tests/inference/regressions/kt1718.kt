@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 //KT-1718 compiler error when not using temporary variable
 package n

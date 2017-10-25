@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // KT-557 Wrong type inference near sure extension function
 

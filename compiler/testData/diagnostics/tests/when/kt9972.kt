@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun test1(): Int {
     val x: String = if (true) <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!>{

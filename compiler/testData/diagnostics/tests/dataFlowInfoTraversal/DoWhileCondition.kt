@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun simpleDoWhile(x: Int?, y0: Int) {
     var y = y0

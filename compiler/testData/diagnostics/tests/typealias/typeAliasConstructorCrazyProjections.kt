@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 class Bound<X, Y : X>(val x: X, val y: Y)
 typealias B<X, Y> = Bound<X, Y>

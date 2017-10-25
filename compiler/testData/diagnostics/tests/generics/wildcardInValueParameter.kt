@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // JAVAC_SKIP
 // FILE: JavaClass.java

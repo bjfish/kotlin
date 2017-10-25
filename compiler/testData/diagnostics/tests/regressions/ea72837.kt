@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 fun <T> g(x: T) = 1
 fun h(x: () -> Unit) = 1
 

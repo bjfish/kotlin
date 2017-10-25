@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 operator fun <K, V> MutableMap<K, V>.set(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>k<!><!>: K, <!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>v<!><!>: V) {}
 

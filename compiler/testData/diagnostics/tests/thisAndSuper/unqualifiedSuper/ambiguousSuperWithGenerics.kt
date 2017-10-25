@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 open class GenericBaseClass<T> {
     open fun foo(x: T): T = x

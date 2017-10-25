@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 class Cons<T : Number>(val head: T, val tail: Cons<T>?)
 typealias C<T> = Cons<T>

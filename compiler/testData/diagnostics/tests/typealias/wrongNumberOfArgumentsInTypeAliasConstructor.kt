@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 class Pair<T1, T2>(val x1: T1, val x2: T2)
 

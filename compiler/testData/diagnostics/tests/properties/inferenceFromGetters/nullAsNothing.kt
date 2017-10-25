@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 val x get() = null
 val <!NI;IMPLICIT_NOTHING_PROPERTY_TYPE!><!IMPLICIT_NOTHING_PROPERTY_TYPE!>y<!><!> get() = null!!
 

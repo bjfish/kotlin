@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // FILE: KotlinFile.kt
 abstract class KotlinClass : JavaClass(), KotlinInterface, JavaInterface {

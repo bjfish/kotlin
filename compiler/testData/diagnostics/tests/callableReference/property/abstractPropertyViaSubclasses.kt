@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 import kotlin.reflect.KProperty1
 

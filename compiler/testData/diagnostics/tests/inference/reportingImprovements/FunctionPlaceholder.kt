@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 //For testing error messages text see DiagnosticMessageTest.testFunctionPlaceholder
 package a

@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun test() {
     run {<!NI;RETURN_NOT_ALLOWED!><!RETURN_NOT_ALLOWED!>return<!><!>}

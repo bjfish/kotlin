@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 object Inference2 {
     interface Foo<T>

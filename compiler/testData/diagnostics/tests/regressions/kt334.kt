@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 import <!NI;PLATFORM_CLASS_MAPPED_TO_KOTLIN!><!PLATFORM_CLASS_MAPPED_TO_KOTLIN!>java.lang.Comparable<!><!> as Comparable
 

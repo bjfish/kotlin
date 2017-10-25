@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -USELESS_ELVIS
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun test() {
     bar(<!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!>if (true) {

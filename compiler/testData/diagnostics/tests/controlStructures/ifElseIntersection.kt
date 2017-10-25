@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 // See also KT-10896: Wrong inference of if / else result type
 
 interface Option<T>

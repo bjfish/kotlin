@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 // See KT-7296
 interface A<T>
 interface B<T> : A<A<T>>

@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // KT-2286 Improve error message for nullability check failure for extension methods
 

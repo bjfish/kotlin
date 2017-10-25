@@ -1,5 +1,5 @@
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 open class Outer<E> {
     inner open class Inner<F> {
         inner class Inner2<D> {

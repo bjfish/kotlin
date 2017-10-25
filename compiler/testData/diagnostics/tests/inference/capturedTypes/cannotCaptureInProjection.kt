@@ -1,6 +1,6 @@
 // !DIAGNOSTICS: -UNUSED_VARIABLE -UNUSED_PARAMETER
 // !CHECK_TYPE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun <T: Any> bar(a: Array<T>): Array<T?> =  null!!
 

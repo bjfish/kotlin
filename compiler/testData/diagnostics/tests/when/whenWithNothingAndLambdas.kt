@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 val <!IMPLICIT_NOTHING_PROPERTY_TYPE!>test1<!> = when {
     true -> { <!TYPE_MISMATCH!>{ true }<!> }

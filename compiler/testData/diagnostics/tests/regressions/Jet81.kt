@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // JET-81 Assertion fails when processing self-referring anonymous objects
 

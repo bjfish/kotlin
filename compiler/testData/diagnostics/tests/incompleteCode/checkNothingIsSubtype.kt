@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_EXPRESSION
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 package d
 
 interface A<T>

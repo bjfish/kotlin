@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER, -UNUSED_VARIABLE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun baz(i: Int) = i
 fun <T> bar(x: T): T = TODO()

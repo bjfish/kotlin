@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 // AssertionError for nested ifs with lambdas and Nothing as results
 

@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 open class A protected constructor(x: Int) {
     protected constructor() : this(1)

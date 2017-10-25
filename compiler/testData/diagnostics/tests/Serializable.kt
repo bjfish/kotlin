@@ -1,4 +1,4 @@
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun use(<!NI;UNUSED_PARAMETER!><!UNUSED_PARAMETER!>s<!><!>: java.io.Serializable) {
 

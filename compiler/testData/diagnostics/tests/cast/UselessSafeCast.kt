@@ -1,5 +1,5 @@
 // !DIAGNOSTICS: -UNUSED_PARAMETER, -UNUSED_VARIABLE
-// WITH_NEW_INFERENCE
+// // !WITH_NEW_INFERENCE
 
 fun test(x: Int?) {
     val a1 = x <!NI;USELESS_CAST!><!USELESS_CAST!>as? Int<!><!>
