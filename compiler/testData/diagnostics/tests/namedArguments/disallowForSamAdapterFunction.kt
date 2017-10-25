@@ -14,5 +14,5 @@ public class J {
 package test
 
 fun test() {
-    J.foo("", <!NAMED_ARGUMENTS_NOT_ALLOWED!>r<!> = <!TYPE_MISMATCH, TYPE_MISMATCH!>{ }<!>, <!NAMED_ARGUMENTS_NOT_ALLOWED!>z<!> = false)
+    J.foo("", <!NI;NAMED_ARGUMENTS_NOT_ALLOWED!><!NAMED_ARGUMENTS_NOT_ALLOWED!>r<!><!> = <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>{ }<!><!><!><!>, <!NI;NAMED_ARGUMENTS_NOT_ALLOWED!><!NAMED_ARGUMENTS_NOT_ALLOWED!>z<!><!> = false)
 }

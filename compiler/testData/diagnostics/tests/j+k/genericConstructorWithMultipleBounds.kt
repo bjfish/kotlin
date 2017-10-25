@@ -12,8 +12,8 @@ public class J {
 
 import java.io.Serializable
 
-fun cloneable(c: Cloneable) = J(<!TYPE_MISMATCH!>c<!>)
+fun cloneable(c: Cloneable) = J(<!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>c<!><!>)
 
-fun serializable(s: Serializable) = J(<!TYPE_MISMATCH!>s<!>)
+fun serializable(s: Serializable) = J(<!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>s<!><!>)
 
 fun <T> both(t: T) where T : Cloneable, T : Serializable = J(t)

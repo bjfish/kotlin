@@ -20,6 +20,6 @@ public class J {
 
 fun test() {
     J.staticNN()
-    J.<!UNSAFE_CALL!>staticN<!>()
+    J.<!NI;UNSAFE_CALL!><!UNSAFE_CALL!>staticN<!><!>()
     J.staticJ()
 }

@@ -23,34 +23,34 @@ fun test() {
     var platformJ = J.staticJ
 
     +platformNN
-    <!UNSAFE_CALL!>+<!>platformN
+    <!NI;UNSAFE_CALL!><!UNSAFE_CALL!>+<!><!>platformN
     +platformJ
 
     ++platformNN
-    <!UNSAFE_CALL!>++<!>platformN
+    <!NI;UNSAFE_CALL!><!UNSAFE_CALL!>++<!><!>platformN
     ++platformJ
 
     platformNN++
-    platformN<!UNSAFE_CALL!>++<!>
+    platformN<!NI;UNSAFE_CALL!><!UNSAFE_CALL!>++<!><!>
     platformJ++
 
     1 + platformNN
-    1 <!NONE_APPLICABLE!>+<!> platformN
+    1 <!NI;NONE_APPLICABLE!><!NONE_APPLICABLE!>+<!><!> platformN
     1 + platformJ
 
     platformNN + 1
-    platformN <!UNRESOLVED_REFERENCE_WRONG_RECEIVER, DEBUG_INFO_UNRESOLVED_WITH_TARGET!>+<!> 1
+    platformN <!NI;UNRESOLVED_REFERENCE_WRONG_RECEIVER!><!NI;DEBUG_INFO_UNRESOLVED_WITH_TARGET!><!UNRESOLVED_REFERENCE_WRONG_RECEIVER!><!DEBUG_INFO_UNRESOLVED_WITH_TARGET!>+<!><!><!><!> 1
     platformJ + 1
 
-    1 <!INFIX_MODIFIER_REQUIRED!>plus<!> platformNN
-    1 <!NONE_APPLICABLE!>plus<!> platformN
-    1 <!INFIX_MODIFIER_REQUIRED!>plus<!> platformJ
+    1 <!NI;INFIX_MODIFIER_REQUIRED!><!INFIX_MODIFIER_REQUIRED!>plus<!><!> platformNN
+    1 <!NI;NONE_APPLICABLE!><!NONE_APPLICABLE!>plus<!><!> platformN
+    1 <!NI;INFIX_MODIFIER_REQUIRED!><!INFIX_MODIFIER_REQUIRED!>plus<!><!> platformJ
 
-    platformNN <!INFIX_MODIFIER_REQUIRED!>plus<!> 1
-    platformN <!UNSAFE_INFIX_CALL, INFIX_MODIFIER_REQUIRED!>plus<!> 1
-    platformJ <!INFIX_MODIFIER_REQUIRED!>plus<!> 1
+    platformNN <!NI;INFIX_MODIFIER_REQUIRED!><!INFIX_MODIFIER_REQUIRED!>plus<!><!> 1
+    platformN <!NI;UNSAFE_INFIX_CALL!><!NI;INFIX_MODIFIER_REQUIRED!><!UNSAFE_INFIX_CALL!><!INFIX_MODIFIER_REQUIRED!>plus<!><!><!><!> 1
+    platformJ <!NI;INFIX_MODIFIER_REQUIRED!><!INFIX_MODIFIER_REQUIRED!>plus<!><!> 1
 
     platformNN += 1
-    platformN <!UNRESOLVED_REFERENCE_WRONG_RECEIVER, DEBUG_INFO_UNRESOLVED_WITH_TARGET!>+=<!> 1
+    platformN <!NI;UNRESOLVED_REFERENCE_WRONG_RECEIVER!><!NI;DEBUG_INFO_UNRESOLVED_WITH_TARGET!><!UNRESOLVED_REFERENCE_WRONG_RECEIVER!><!DEBUG_INFO_UNRESOLVED_WITH_TARGET!>+=<!><!><!><!> 1
     platformJ += 1
 }

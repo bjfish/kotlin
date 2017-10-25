@@ -16,13 +16,13 @@ public class A {
 
 // FILE: main.kt
 fun main() {
-    A().foo <!TYPE_MISMATCH, TYPE_MISMATCH!>{
-        <!UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
+    A().foo <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>{
+        <!NI;UNUSED_ANONYMOUS_PARAMETER!><!UNUSED_ANONYMOUS_PARAMETER!>x<!><!> ->
         ""
-    }<!>
+    }<!><!><!><!>
 
-    A.bar <!TYPE_MISMATCH, TYPE_MISMATCH!>{
-        <!UNUSED_ANONYMOUS_PARAMETER!>x<!> ->
+    A.bar <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>{
+        <!NI;UNUSED_ANONYMOUS_PARAMETER!><!UNUSED_ANONYMOUS_PARAMETER!>x<!><!> ->
         ""
-    }<!>
+    }<!><!><!><!>
 }

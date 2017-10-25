@@ -11,12 +11,12 @@ public class A {
 class Inv<T>
 
 fun test(x: Inv<Int>, y: Inv<String>) {
-    A(<!TYPE_MISMATCH!>""<!>, <!TYPE_MISMATCH, TYPE_MISMATCH!>x<!>)
+    A(<!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>""<!><!>, <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>x<!><!><!><!>)
     A("", y)
 
-    A<String>("", <!TYPE_MISMATCH, TYPE_MISMATCH, TYPE_MISMATCH, TYPE_MISMATCH!>x<!>)
+    A<String>("", <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>x<!><!><!><!><!><!><!><!>)
 
-    A<Any>("", <!TYPE_MISMATCH, TYPE_MISMATCH, TYPE_MISMATCH, TYPE_MISMATCH, TYPE_MISMATCH!>x<!>)
+    A<Any>("", <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>x<!><!><!><!><!><!><!><!><!><!>)
     A<String>("", y)
-    A<CharSequence>("", <!TYPE_MISMATCH, TYPE_MISMATCH!>y<!>)
+    A<CharSequence>("", <!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>y<!><!><!><!>)
 }

@@ -20,8 +20,8 @@ fun baz(s: String) {}
 
 fun f() {
     A().foo(1, *args)
-    bar(2, *<!TYPE_MISMATCH, TYPE_MISMATCH!>args<!>)
-    baz(*<!TYPE_MISMATCH!>args<!>)
+    bar(2, *<!NI;TYPE_MISMATCH!><!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!><!TYPE_MISMATCH!>args<!><!><!><!>)
+    baz(*<!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>args<!><!>)
 }
 
 fun g(args: Array<String>?) {

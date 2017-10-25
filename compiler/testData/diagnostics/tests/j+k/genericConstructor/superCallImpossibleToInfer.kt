@@ -13,9 +13,9 @@ public class A<E> {
 // if there is not enough information to infer corresponding arguments
 // May be we could add some special syntax for such arguments
 class B1(x: List<String>) : A<CharSequence>("", x)
-class B2(x: List<Int>) : A<CharSequence>("", <!TYPE_MISMATCH!>x<!>)
+class B2(x: List<Int>) : A<CharSequence>("", <!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>x<!><!>)
 
 class C : A<CharSequence> {
     constructor(x: List<String>) : super("", x)
-    constructor(x: List<Int>, y: Int) : super("", <!TYPE_MISMATCH!>x<!>)
+    constructor(x: List<Int>, y: Int) : super("", <!NI;TYPE_MISMATCH!><!TYPE_MISMATCH!>x<!><!>)
 }
