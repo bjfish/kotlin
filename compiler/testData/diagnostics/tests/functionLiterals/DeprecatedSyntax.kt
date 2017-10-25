@@ -1,10 +1,10 @@
 // !WITH_NEW_INFERENCE
 
-val receiver = { Int.<!NI;ILLEGAL_SELECTOR!>(<!NI;SYNTAX!><!><!SYNTAX!><!>)<!> <!NI;SYNTAX!><!SYNTAX!>-><!><!> }
+val receiver = { Int.<!NI;ILLEGAL_SELECTOR!><!ILLEGAL_SELECTOR!>(<!NI;SYNTAX!><!><!SYNTAX!><!>)<!><!> <!NI;SYNTAX!><!SYNTAX!>-><!><!> }
 val receiverWithParameter = { Int.<!NI;ILLEGAL_SELECTOR!><!ILLEGAL_SELECTOR!>(<!NI;UNRESOLVED_REFERENCE!><!UNRESOLVED_REFERENCE!>a<!><!>)<!><!> <!NI;SYNTAX!><!SYNTAX!>-><!><!> }
 
-val receiverAndReturnType = { Int.<!NI;ILLEGAL_SELECTOR!>(<!NI;SYNTAX!><!><!SYNTAX!><!>)<!><!NI;SYNTAX!><!SYNTAX!>: Int ->  5<!><!> }
-val receiverAndReturnTypeWithParameter = { Int.<!NI;ILLEGAL_SELECTOR!>(<!NI;UNRESOLVED_REFERENCE!><!UNRESOLVED_REFERENCE!>a<!><!><!><!NI;SYNTAX!><!SYNTAX!><!NI;SYNTAX!><!><!SYNTAX!><!>: Int): Int ->  5<!><!> }
+val receiverAndReturnType = { Int.<!NI;ILLEGAL_SELECTOR!><!ILLEGAL_SELECTOR!>(<!NI;SYNTAX!><!><!SYNTAX!><!>)<!><!><!NI;SYNTAX!><!SYNTAX!>: Int ->  5<!><!> }
+val receiverAndReturnTypeWithParameter = { Int.<!NI;ILLEGAL_SELECTOR!><!ILLEGAL_SELECTOR!>(<!NI;UNRESOLVED_REFERENCE!><!UNRESOLVED_REFERENCE!>a<!><!><!><!><!NI;SYNTAX!><!SYNTAX!><!NI;SYNTAX!><!><!SYNTAX!><!>: Int): Int ->  5<!><!> }
 
 val returnType = { (<!NI;SYNTAX!><!><!SYNTAX!><!>): Int -> 5 }
 val returnTypeWithParameter = { (<!NI;COMPONENT_FUNCTION_MISSING!><!COMPONENT_FUNCTION_MISSING!><!NI;UNUSED_DESTRUCTURED_PARAMETER_ENTRY!><!UNUSED_DESTRUCTURED_PARAMETER_ENTRY!>b<!><!>: Int<!><!>): Int -> 5 }
@@ -17,7 +17,7 @@ val parenthesizedParameters2 = { <!NI;CANNOT_INFER_PARAMETER_TYPE!><!CANNOT_INFE
 val none = { -> }
 
 
-val parameterWithFunctionType = { <!NI;UNUSED_ANONYMOUS_PARAMETER!>a<!>: ((Int) -> Int) -> <!NI;SYNTAX!><!><!SYNTAX!><!>} // todo fix parser
+val parameterWithFunctionType = { <!NI;UNUSED_ANONYMOUS_PARAMETER!><!UNUSED_ANONYMOUS_PARAMETER!>a<!><!>: ((Int) -> Int) -> <!NI;SYNTAX!><!><!SYNTAX!><!>} // todo fix parser
 
 val newSyntax = { <!NI;UNUSED_ANONYMOUS_PARAMETER!><!UNUSED_ANONYMOUS_PARAMETER!>a<!><!>: Int -> }
 val newSyntax1 = { <!NI;CANNOT_INFER_PARAMETER_TYPE!><!NI;UNUSED_ANONYMOUS_PARAMETER!><!CANNOT_INFER_PARAMETER_TYPE!><!UNUSED_ANONYMOUS_PARAMETER!>a<!><!><!><!>, <!NI;CANNOT_INFER_PARAMETER_TYPE!><!NI;UNUSED_ANONYMOUS_PARAMETER!><!CANNOT_INFER_PARAMETER_TYPE!><!UNUSED_ANONYMOUS_PARAMETER!>b<!><!><!><!> -> }

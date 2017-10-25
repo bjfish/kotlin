@@ -12,7 +12,7 @@ public class My {
 fun test() {
     val my = My.create()
     if (my == null) {
-        my.foo()
+        <!DEBUG_INFO_CONSTANT!>my<!><!UNSAFE_CALL!>.<!>foo()
     }
 }
 

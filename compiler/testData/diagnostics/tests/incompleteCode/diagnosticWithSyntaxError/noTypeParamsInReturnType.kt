@@ -8,5 +8,5 @@ fun <F, G> getMap() : Map<F, G> = throw Exception()
 
 fun bar123() {
     <!TYPE_INFERENCE_NO_INFORMATION_FOR_PARAMETER!>foo<!>(<!TYPE_INFERENCE_NO_INFORMATION_FOR_PARAMETER!>getMap<!>(
-<!NI;SYNTAX!><!><!SYNTAX!><!>}
+<!NI;SYNTAX!><!><!TOO_MANY_ARGUMENTS!><!><!SYNTAX!><!>}
 

@@ -22,7 +22,7 @@ class B : A() {
         }
 
         if (d.x is B) {
-            <!NI;SMARTCAST_IMPOSSIBLE!><!SMARTCAST_IMPOSSIBLE!>d.x<!><!>.<!NI;INVISIBLE_MEMBER!><!INVISIBLE_MEMBER!>foo<!><!> {}
+            <!NI;SMARTCAST_IMPOSSIBLE!><!SMARTCAST_IMPOSSIBLE!>d.x<!><!>.<!NI;INVISIBLE_MEMBER!>foo<!> {}
         }
     }
 }
