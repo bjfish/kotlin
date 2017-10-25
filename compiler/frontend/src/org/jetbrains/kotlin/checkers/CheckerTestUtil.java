@@ -651,9 +651,10 @@ public class CheckerTestUtil {
         List<DiagnosticDescriptor> diagnosticDescriptors = Lists.newArrayList();
         if (isWithNewInference) {
             for (ActualDiagnostic actualDiagnostic : diagnostics) {
-                TextRange range = actualDiagnostic.diagnostic.getTextRanges().get(0);
-                diagnosticDescriptors.add(new DiagnosticDescriptor(range.getStartOffset(), range.getEndOffset(),
-                                                                   Collections.singletonList(actualDiagnostic)));
+                for (TextRange range : actualDiagnostic.diagnostic.getTextRanges()) {
+                    diagnosticDescriptors.add(new DiagnosticDescriptor(range.getStartOffset(), range.getEndOffset(),
+                                                                       Collections.singletonList(actualDiagnostic)));
+                }
             }
         }
         else {
