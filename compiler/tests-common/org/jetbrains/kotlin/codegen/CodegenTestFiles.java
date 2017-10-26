@@ -23,9 +23,10 @@ import com.intellij.psi.PsiErrorElement;
 import com.intellij.util.ArrayUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.checkers.CheckerTestUtil;
+import org.jetbrains.kotlin.cli.common.script.CliScriptDefinitionProvider;
 import org.jetbrains.kotlin.psi.KtFile;
 import org.jetbrains.kotlin.resolve.AnalyzingUtils;
-import org.jetbrains.kotlin.script.KotlinScriptDefinitionProvider;
+import org.jetbrains.kotlin.script.ScriptDefinitionProvider;
 import org.jetbrains.kotlin.script.StandardScriptDefinition;
 import org.jetbrains.kotlin.test.KotlinTestUtils;
 
@@ -133,9 +134,9 @@ public class CodegenTestFiles {
             }
         }
 
-        KotlinScriptDefinitionProvider scriptDefinitionProvider = KotlinScriptDefinitionProvider.getInstance(project);
-        assert scriptDefinitionProvider != null;
-        scriptDefinitionProvider.addScriptDefinition(StandardScriptDefinition.INSTANCE);
+        CliScriptDefinitionProvider scriptDefinitionProvider =
+                (CliScriptDefinitionProvider) ScriptDefinitionProvider.Companion.getInstance(project);
+        scriptDefinitionProvider.setScriptDefinitions(Collections.singletonList(StandardScriptDefinition.INSTANCE));
 
         return new CodegenTestFiles(Collections.singletonList(file), expectedValues, scriptParameterValues);
     }
